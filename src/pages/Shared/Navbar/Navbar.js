@@ -53,7 +53,7 @@ const Navbar = () => {
                 </ul>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>Home 4 25 </a>
               </li>
             </ul>
           </div>
