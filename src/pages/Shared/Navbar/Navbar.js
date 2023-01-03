@@ -28,15 +28,18 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Item 1</Link>
+                <Link>Home</Link>
               </li>
               <li tabIndex={0}>
                 <Link className="justify-between">
-                  Parent
+                  Appointment
                 </Link>
               </li>
               <li>
-                <Link>Home</Link>
+                <Link>About</Link>
+              </li>
+              <li>
+                <Link>Login</Link>
               </li>
             </ul>
           </div>
@@ -49,13 +52,16 @@ const Navbar = () => {
             </li>
             <li tabIndex={0}>
               <Link>
-                Parent
+                Appointment
               </Link>
             </li>
-            <li>
-              <Link>Item 3</Link>
-            </li>
           </ul>
+            <li>
+              <Link>About</Link>
+            </li>
+            <li>
+              <Link>Login</Link>
+            </li>
         </div>
         <div className="navbar-end">
           <Link className="btn">Get started</Link>
