@@ -2,6 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  const menuItems = 
+  <React.Fragment>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/appointment">
+                Appointment
+              </Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/reviews">Reviews</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+  </React.Fragment>
+
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -27,45 +50,17 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link>Home</Link>
-              </li>
-              <li tabIndex={0}>
-                <Link className="justify-between">
-                  Appointment
-                </Link>
-              </li>
-              <li>
-                <Link>About</Link>
-              </li>
-              <li>
-                <Link>Login</Link>
-              </li>
+             {menuItems}
             </ul>
           </div>
           <Link className="btn btn-ghost normal-case text-xl">Doctors-Portal</Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link>Home</Link>
-            </li>
-            <li tabIndex={0}>
-              <Link>
-                Appointment
-              </Link>
-            </li>
+            {menuItems}
           </ul>
-            <li>
-              <Link>About</Link>
-            </li>
-            <li>
-              <Link>Login</Link>
-            </li>
         </div>
-        <div className="navbar-end">
-          <Link className="btn">Get started</Link>
-        </div>
+        
       </div>
     </div>
   );
