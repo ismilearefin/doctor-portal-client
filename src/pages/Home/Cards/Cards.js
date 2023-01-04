@@ -6,7 +6,7 @@ import phone from '../../../assets/icons/phone.svg';
 
 const Cards = () => {
     return (
-        <div className='grid grid-cols-3 gap-3 my-10'>
+        <div className='grid grid-cols-3 gap-5 my-10 mx-5'>
            <div className="card max-w-md h-48 bg-primary bg-gradient-to-l from-primary to-secondary text-primary-content flex flex-row justify-center items-center p-4">
             <div>
                 <img src={clock} alt='icon' className='w-20 mr-2'/>
@@ -18,7 +18,7 @@ const Cards = () => {
                 </div>
             </div>
             </div>
-           <div className="card max-w-md h-48 bg-neutral text-primary-content flex flex-row justify-center items-center p-4">
+           <div className="card max-w-md h-48 bg-neutral text-primary-content flex flex-row  items-center p-4">
             <div>
                 <img src={marker} alt='icon' className='w-20 mr-2'/>
             </div>
