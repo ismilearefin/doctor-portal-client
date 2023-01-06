@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 
 const Calander = () => {
-    const [selected, setSelected] = useState(false);
+    const [selected, setSelected] = useState(new Date());
 
     let footer = <p>Please pick a day.</p>;
     if (selected) {
@@ -28,8 +28,7 @@ const Calander = () => {
       mode="single"
       selected={selected}
       onSelect={setSelected}
-      footer={footer}
-    />
+      />
         </div>
       </div>
     </div>
