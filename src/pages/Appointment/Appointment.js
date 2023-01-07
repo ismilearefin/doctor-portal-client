@@ -1,12 +1,20 @@
-import React from 'react';
-import Calander from './Calander/Calander';
+import React, { useState } from 'react';
+import AvailableServices from './AvailableServices/AvailableServices';
+import Calender from './Calander/Calander';
+
 
 const Appointment = () => {
-    return (
+    const [selected, setSelected] = useState(new Date());
+       return(
         <div>
-            <Calander></Calander>
-        </div>
-    );
+        <Calender
+         selected={selected}
+         setSelected={setSelected}
+        ></Calender>
+        <AvailableServices selected={selected} ></AvailableServices>
+    </div>
+       )
+    
 };
 
 export default Appointment;

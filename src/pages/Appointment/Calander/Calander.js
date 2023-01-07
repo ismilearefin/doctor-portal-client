@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import background from "../../../assets/images/bg.png";
 import chair from "../../../assets/images/chair.png";
+import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
-import { DayPicker } from 'react-day-picker';
 
-const Calander = () => {
-    const [selected, setSelected] = useState(new Date());
+
+const Calender = ({selected, setSelected}) => {
+    
 
     let footer = <p>Please pick a day.</p>;
     if (selected) {
@@ -28,6 +29,7 @@ const Calander = () => {
       mode="single"
       selected={selected}
       onSelect={setSelected}
+      footer={footer}
       />
         </div>
       </div>
@@ -35,4 +37,4 @@ const Calander = () => {
     );
 };
 
-export default Calander;
+export default Calender;
