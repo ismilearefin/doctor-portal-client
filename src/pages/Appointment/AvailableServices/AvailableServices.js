@@ -11,7 +11,8 @@ const AvailableServices = ({selected}) => {
         .then(res => res.json())
         .then(data => setappointmentOptions(data))
     },[])
-    console.log(appointmentOptions)
+
+    
     return (
         <div className='flex flex-col justify-center'>
             <p className='text-center font-bold text-secondary mt-14    text-2xl'>Available Services on {format(selected, "PP")}</p>
@@ -30,10 +31,13 @@ const AvailableServices = ({selected}) => {
                     >Book Appointment</label>
                     </div>
                 </div>
-                <BookingModal
-                treatment={treatment}
-                selected={selected}
-                ></BookingModal>
+                {
+                    treatment && 
+                    <BookingModal
+                    treatment={treatment}
+                    selected={selected}
+                    ></BookingModal>
+                }
                 </div>
              )}
             </div>
