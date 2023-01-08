@@ -2,26 +2,31 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Signup = () => {
     const { register, handleSubmit,formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    const onSubmit = data => console.log(data);
     return (
         <div className='flex justify-center items-center '>
             <form onSubmit={handleSubmit(onSubmit)} className="p-5  rounded-md  w-96" style={{"boxShadow": "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}}>
-            <p className='text-center text-xl font-bold'>Login</p>
+            <p className='text-center text-xl font-bold mb-3'>Sign Up</p>
+            <label className='text-sm'>Name</label>
+            <input className='w-full rounded-md border h-11' type="text" {...register("name", { required: true})} 
+             aria-invalid={errors.name ? "true" : "false"}
+            />
+            {errors.name?.type === 'required' && <p role="alert" className='text-center text-red-600'>Name is required</p>}
+
             <label className='text-sm'>Email</label>
             <input className='w-full rounded-md border h-11' type="email" {...register("email", { required: true})} 
              aria-invalid={errors.email ? "true" : "false"}
             />
             {errors.email?.type === 'required' && <p role="alert" className='text-center text-red-600'>Email is required</p>}
             <label className='text-sm'>password</label>
-            <input className='w-full rounded-md border h-11 mt-6' type="password" {...register("password",{ required: true})} 
+            <input className='w-full rounded-md border h-11 ' type="password" {...register("password",{ required: true})} 
             aria-invalid={errors.password ? "true" : "false"}
             />
             {errors.password?.type === 'required' && <p role="alert" className='text-center text-red-600'>password is required</p>}
-            <label className='text-sm'>Forgot password?</label>
             <input className='w-full rounded-md border h-11 mt-8 bg-neutral text-white'  type="Submit" />
-            <p className='text-sm text-center mt-3'>New to Doctors Portal? <Link to="/signup" className='text-secondary'>Create new account</Link></p>
+            <p className='text-sm text-center mt-3'>New to Doctors Portal? <Link to="/login" className='text-secondary'>Already have an account</Link></p>
             <div className='flex items-center justify-between my-4'>
                 <hr className='w-2/4 border'/>
                 <p className='mx-5'>OR</p>
@@ -33,4 +38,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Signup;
