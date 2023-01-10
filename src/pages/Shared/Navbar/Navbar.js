@@ -28,13 +28,16 @@ const Navbar = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
-            <li>
-              <Link to="/reviews">Reviews</Link>
-            </li>
+            
             { user?.uid ? 
+            <>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
             <li>
               <p onClick={handleSignout}>Sign out</p>
             </li>
+            </>
             :  
             <li>
               <Link to="/login">Login</Link>
