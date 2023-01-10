@@ -1,7 +1,19 @@
-import React from "react";
+import { getAuth, signOut } from "firebase/auth";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
+import { app } from "../../../firebase/firebase.config";
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
+  const auth = getAuth(app)
+  const handleSignout =()=>{
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
 
   const menuItems = 
   <React.Fragment>
@@ -19,9 +31,15 @@ const Navbar = () => {
             <li>
               <Link to="/reviews">Reviews</Link>
             </li>
+            { user?.uid ? 
+            <li>
+              <p onClick={handleSignout}>Sign out</p>
+            </li>
+            :  
             <li>
               <Link to="/login">Login</Link>
             </li>
+          }
   </React.Fragment>
 
 
@@ -53,7 +71,7 @@ const Navbar = () => {
              {menuItems}
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl">Doctors-Portal</Link>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">Doctors-Portal</Link>
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
