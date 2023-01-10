@@ -7,7 +7,7 @@ const Signup = () => {
     const onSubmit = data => console.log(data);
     return (
         <div className='flex justify-center items-center '>
-            <form onSubmit={handleSubmit(onSubmit)} className="p-5  rounded-md  w-96" style={{"boxShadow": "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}}>
+            <form onSubmit={handleSubmit(onSubmit)} className="p-5 rounded-md w-96" style={{"boxShadow": "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}}>
             <p className='text-center text-xl font-bold mb-3'>Sign Up</p>
             <label className='text-sm'>Name</label>
             <input className='w-full rounded-md border h-11' type="text" {...register("name", { required: true})} 
