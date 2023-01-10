@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Signup = () => {
     const { register, handleSubmit,formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const {SignupwithPassword} = useContext(AuthContext);
+    const onSubmit = data => {
+        SignupwithPassword(data.email, data.password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            // ..
+          });
+    }
     return (
         <div className='flex justify-center items-center '>
             <form onSubmit={handleSubmit(onSubmit)} className="p-5 rounded-md w-96" style={{"boxShadow": "rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px"}}>
