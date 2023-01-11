@@ -5,9 +5,10 @@ import { AuthContext } from "../../../context/AuthProvider";
 import { app } from "../../../firebase/firebase.config";
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
+  const {user,setLoading} = useContext(AuthContext)
   const auth = getAuth(app)
   const handleSignout =()=>{
+    setLoading(true);
     signOut(auth).then(() => {
       // Sign-out successful.
     }).catch((error) => {
