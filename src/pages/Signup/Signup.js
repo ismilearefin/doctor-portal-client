@@ -59,6 +59,7 @@ const Signup = () => {
                 <p className='mx-5'>OR</p>
                 <hr className='w-2/4 border'/>
             </div>
+            {signUpError}
             <button className='border rounded-md w-full h-11 text-black'>CONTINUE WITH GOOGLE</button>
             </form>
         </div>
